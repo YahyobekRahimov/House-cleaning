@@ -432,5 +432,15 @@ th {
     padding-left: 5vw;
   }
 }
+button {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
 /*# sourceMappingURL=index.css.map */

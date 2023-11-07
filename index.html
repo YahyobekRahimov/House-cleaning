@@ -1,28 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toza makon</title>
     <link rel="stylesheet" href="./styles/index.css">
+    <link rel="shortcut icon" href="./images/toza-makon-icon.svg" type="image/x-icon">
+    <style>
+        main img {
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
-    <script>
-        fetch('./components/contact.html')
-            .then(response => response.text())
-            .then(headerHtml => {
-                document.querySelector('.header').insertAdjacentHTML('beforeend', headerHtml);
-            });
-        fetch('./components/header.html')
-            .then(response => response.text())
-            .then(headerHtml => {
-                document.querySelector('.header').insertAdjacentHTML('beforeend', headerHtml);
-            });
-    </script>
-    <!-- ! Header section -->
-    <header class="header"></header>
+
+    <!-- ! contact section -->
+    <section class="contact">
+        <div class="container contact__container">
+            <div class="contact__information">
+                <a href="tel:7757">
+                    <img src="./images/call.svg" alt="call">
+                    <span class="phone-number">77 57</span>
+                </a>
+                <img src="./images/line.svg" alt="line">
+                <span class="information__action">Xizmatlarimiz haqida bepul ma’lumot olish uchun qo'ng'iroq
+                    qiling!</span>
+                <img src="./images/line.svg" alt="line">
+                <span>Ish vaqti: 09:00 - 18:00</span>
+            </div>
+            <div class="contact__social-links">
+                <a href="#">
+                    <img src="./images/icon_youTube.svg" alt="youtube page">
+                </a>
+                <a href="#">
+                    <img src="./images/icon_telegram.svg" alt="telegram page">
+                </a>
+                <a href="#">
+                    <img src="./images/icon_instagram.svg" alt="instagram page">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <header class="header">
+
+        <!-- ! header section -->
+
+        <section>
+            <div class="container header__container">
+                <button id="bars">
+                    <span class="first-bar"></span>
+                    <span class="middle-bar"></span>
+                    <span class="last-bar"></span>
+                </button>
+                <a href="#">
+                    <img class="logo" src="./images/logo.svg" alt="logo">
+                </a>
+                <nav>
+                    <ul class="header__nav">
+                        <li>
+                            <a href="#">
+                                Xizmatlar
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">Blog</a>
+                        </li>
+                        <li>
+                            <a href="#">Biz haqimizda</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header__features">
+                    <button id="change-theme-button">
+                        <img src="./images/sun.svg" alt="sun">
+                    </button>
+                    <div class="change-lang-button-wrapper">
+                        <button id="change-lang-button" class="uz">
+                            <img class="uzbek-img" src="./images/Uzbekistan.svg" alt="uzbekistan flag">
+                        </button>
+                        <ul class="lang-list">
+                            <li class="first-list-item">
+                                <button class="ru"><img class="russian-img" src="./images/Russian-Federation.svg"
+                                        alt="Russian flag"></button>
+                            </li>
+                            <li class="second-list-item">
+                                <button class="en"><img class="english-img" src="./images/Great-Britain.svg"
+                                        alt="Great Britain flag"></button>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <button class="try-our-app-button common-button">
+                        Ilovamizni sinab ko'ring
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </header>
+
+    <section class="bar-menu">
+        <div class="container bar-menu__container">
+            <ul class="bar-menu__list">
+            </ul>
+        </div>
+    </section>
     <!-- ! Main -->
 
     <main class="main">
@@ -41,10 +126,10 @@
                         etamiz.
                     </p>
                     <div class="hero__button-group">
-                        <button class="hero__contact-button">
+                        <button class="hero__contact-button common-button">
                             Bog'lanish
                         </button>
-                        <button class="hero__services">
+                        <button class="hero__services common-button">
                             Bizning xizmatlar
                         </button>
                     </div>
@@ -78,7 +163,7 @@
                 <div class="why-us__reasons">
 
                     <div class="reasons__block">
-                        <img src="./images/hand-plant-on-top.svg" alt="hand and a plant on top">
+                        <img width="48" src="./images/hand-plant-on-top.svg" alt="hand and a plant on top">
                         <h3 class="reasons__block__title">
                             Tozalikdan rohatlanish
                         </h3>
@@ -88,7 +173,7 @@
                         </p>
                     </div>
                     <div class="reasons__block">
-                        <img src="./images/hand-professionalism.svg" alt="Professionalism">
+                        <img width="48" src="./images/hand-professionalism.svg" alt="Professionalism">
                         <h3 class="reasons__block__title">
                             Professionallik
                         </h3>
@@ -98,7 +183,7 @@
                         </p>
                     </div>
                     <div class="reasons__block">
-                        <img src="./images/man-expert.svg" alt="experts service">
+                        <img width="48" src="./images/man-expert.svg" alt="experts service">
                         <h3 class="reasons__block__title">
                             Mutaxassislar xizmati
                         </h3>
@@ -150,7 +235,7 @@
                             Biz sizning uyingiz va ofisingiz tozaligi va farovonligi uchun keng ko'lamli xizmatlarni
                             taqdim etamiz.
                         </p>
-                        <button class="cards__block__button">
+                        <button class="cards__block__button common-button">
                             Batafsil
                         </button>
 
@@ -172,7 +257,7 @@
                             Biz sizning uyingiz va ofisingiz tozaligi va farovonligi uchun keng ko'lamli xizmatlarni
                             taqdim etamiz.
                         </p>
-                        <button class="cards__block__button">
+                        <button class="cards__block__button common-button">
                             Batafsil
                         </button>
 
@@ -194,7 +279,7 @@
                             Biz sizning uyingiz va ofisingiz tozaligi va farovonligi uchun keng ko'lamli xizmatlarni
                             taqdim etamiz.
                         </p>
-                        <button class="cards__block__button">
+                        <button class="cards__block__button common-button">
                             Batafsil
                         </button>
 
@@ -222,10 +307,10 @@
                     </p>
                     <div class="google-apple-button-group">
                         <a href="#">
-                            <img src="./images/google-play.png" alt="google play icon">
+                            <img src="./images/google-play.svg" alt="google play icon">
                         </a>
                         <a href="#">
-                            <img src="./images/apple-store.png" alt="app store icon">
+                            <img src="./images/app-store.svg" alt="app store icon">
                         </a>
                     </div>
 
@@ -255,42 +340,45 @@
                         Mijozlar nima deydi
                     </h3>
                 </div>
-
-                <div class="feedbacks__block">
-                    <img src="./images/quote.svg" alt="quote">
-                    <p class="feedbacks__text">
-                        Biz sizning uyingiz va ofisingiz tozaligi va farovonligi uchun keng ko'lamli xizmatlarni taqdim
-                        etamiz.
-                    </p>
-                    <img src="./images/man-client.png" alt="male client">
-                    <span class="client-name">
-                        John Doe
-                    </span>
-                    <div class="stars">
-                        <img src="./images/star.svg" alt="star">
-                        <img src="./images/star.svg" alt="star">
-                        <img src="./images/star.svg" alt="star">
-                        <img src="./images/star.svg" alt="star">
-                        <img src="./images/star.svg" alt="star">
+                <div class="feedbacks-wrapper">
+                    <div class="feedbacks__block">
+                        <img class="quote" src="./images/quote.svg" alt="quote">
+                        <p class="feedbacks__text">
+                            Biz sizning uyingiz va ofisingiz tozaligi va farovonligi uchun keng ko'lamli xizmatlarni
+                            taqdim
+                            etamiz.
+                        </p>
+                        <img class="client-img" src="./images/man-client.png" alt="male client">
+                        <span class="client-name">
+                            John Doe
+                        </span>
+                        <div class="stars">
+                            <img src="./images/star.svg" alt="star">
+                            <img src="./images/star.svg" alt="star">
+                            <img src="./images/star.svg" alt="star">
+                            <img src="./images/star.svg" alt="star">
+                            <img src="./images/star.svg" alt="star">
+                        </div>
                     </div>
-                </div>
 
-                <div class="feedbacks__block">
-                    <img src="./images/quote.svg" alt="quote">
-                    <p class="feedbacks__text">
-                        Biz sizning uyingiz va ofisingiz tozaligi va farovonligi uchun keng ko'lamli xizmatlarni taqdim
-                        etamiz.
-                    </p>
-                    <img src="./images/woman-client.png" alt="female client">
-                    <span class="client-name">
-                        Jane Doe
-                    </span>
-                    <div class="stars">
-                        <img src="./images/star.svg" alt="star">
-                        <img src="./images/star.svg" alt="star">
-                        <img src="./images/star.svg" alt="star">
-                        <img src="./images/star.svg" alt="star">
-                        <img src="./images/star.svg" alt="star">
+                    <div class="feedbacks__block">
+                        <img class="quote" src="./images/quote.svg" alt="quote">
+                        <p class="feedbacks__text">
+                            Biz sizning uyingiz va ofisingiz tozaligi va farovonligi uchun keng ko'lamli xizmatlarni
+                            taqdim
+                            etamiz.
+                        </p>
+                        <img class="client-img" src="./images/woman-client.png" alt="female client">
+                        <span class="client-name">
+                            Jane Doe
+                        </span>
+                        <div class="stars">
+                            <img src="./images/star.svg" alt="star">
+                            <img src="./images/star.svg" alt="star">
+                            <img src="./images/star.svg" alt="star">
+                            <img src="./images/star.svg" alt="star">
+                            <img src="./images/star.svg" alt="star">
+                        </div>
                     </div>
                 </div>
 
@@ -324,21 +412,75 @@
 
             </div>
         </section>
+
+        <section class="chatbot">
+            <div class="container chatbot__container">
+                <button class="live-chat-button">
+                    <img src="./images/live-chat.svg" alt="live chat button">
+                </button>
+            </div>
+        </section>
     </main>
 
-    <footer class="footer"></footer>
-    <script>
-        fetch('./components/footer.html')
-            .then(response => response.text())
-            .then(headerHtml => {
-                document.querySelector('.footer').insertAdjacentHTML('beforeend', headerHtml);
-            });
-        fetch('./components/contact.html')
-            .then(response => response.text())
-            .then(headerHtml => {
-                document.querySelector('.footer').insertAdjacentHTML('beforeend', headerHtml);
-            });
-    </script>
+    <footer class="footer">
+        <div class="container footer__container">
+            <!-- * CTA (call to action) -->
+            <div class="footer__cta">
+
+                <p class="footer__cta__subtitle">
+                    Biz uchun
+                </p>
+                <h2 class="footer__cta__title">
+                    Yana savollaringiz bormi?
+                </h2>
+                <p class="footer__cta__description">
+                    Sizni qiynayotgan savollaringiz bo’lsa biz bilan bog’laning! Mutaxassislarimiz sizning
+                    savollaringizga javob
+                    berishadi!
+                </p>
+                <button class="footer__cta__button common-button">
+                    Buyurtma qilish
+                </button>
+            </div>
+
+            <a class="footer__logo" href="#">
+                <img src="./images/toza-makon-icon.svg" alt="logo icon">
+                <img src="./images/toza-makon.svg" alt="Toza makon">
+                <span class="slogan">Tozalik biz bilan boshlanadi</span>
+            </a>
+
+        </div>
+    </footer>
+    <!-- ! Contact section -->
+    <section class="contact">
+        <div class="container contact__container">
+            <div class="contact__information">
+                <a href="tel:7757">
+                    <img src="./images/call.svg" alt="call">
+                    <span class="phone-number">77 57</span>
+                </a>
+                <img src="./images/line.svg" alt="line">
+                <span class="information__action">Xizmatlarimiz haqida bepul ma’lumot olish uchun qo'ng'iroq
+                    qiling!</span>
+                <img src="./images/line.svg" alt="line">
+                <span>Ish vaqti: 09:00 - 18:00</span>
+            </div>
+            <div class="contact__social-links">
+                <a href="#">
+                    <img src="./images/icon_youTube.svg" alt="youtube page">
+                </a>
+                <a href="#">
+                    <img src="./images/icon_telegram.svg" alt="telegram page">
+                </a>
+                <a href="#">
+                    <img src="./images/icon_instagram.svg" alt="instagram page">
+                </a>
+            </div>
+        </div>
+    </section>
 </body>
+
+<script src="main.js" type="module"></script>
+<script src="lang-handling.js"></script>
 
 </html>

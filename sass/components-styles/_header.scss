@@ -1,9 +1,12 @@
+.header {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
 .header__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 24px;
-  padding-top: 24px;
 }
 
 .header__nav {
@@ -42,24 +45,26 @@
   display: flex;
   align-items: center;
   gap: 24px;
-  & > :last-child {
-    padding: 16px 20px;
-    background-color: $clr-green-900;
-    color: $clr-white-900;
-    font-size: $fs-16;
-    font-weight: 600;
-    line-height: 100%; /* 16px */
-    border-radius: 12px;
-    background: $clr-green-900;
-    box-shadow: 0px 8px 32px 0px rgba(15, 195, 109, 0.32);
-  }
 }
 
+.try-our-app-button {
+  background-color: transparent;
+  color: $clr-green-900;
+  font-size: $fs-16;
+  font-weight: 600;
+  line-height: 100%; /* 16px */
+  border-radius: 12px;
+  border: 1px solid $clr-green-900;
+  padding: 16px 20px;
+}
 #change-theme-button {
   width: 48px;
   height: 48px;
   background-color: $clr-gray-800;
   border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .change-lang-button-wrapper {
@@ -111,6 +116,19 @@
   height: 100%;
 }
 
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: top 0.3s;
+  background-color: rgb(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
 @media (max-width: 1440px) {
   .header__features {
     gap: 1.5rem;
@@ -137,7 +155,7 @@
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
   }
-  .header__features > :last-child {
+  .try-our-app-button {
     padding: 1rem 1.25rem;
   }
   #change-theme-button img {

@@ -43,3 +43,15 @@ BARS.addEventListener("click", function () {
 function determineSize() {
   return window.innerWidth;
 }
+
+const header = document.querySelector('header');
+const headerOffset = header.offsetTop;
+function handleScroll() {
+  if (window.pageYOffset > headerOffset) {
+    header.classList.add('fixed-header');
+  } else {
+    header.classList.remove('fixed-header');
+  }
+}
+
+window.addEventListener('scroll', handleScroll);

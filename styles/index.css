@@ -536,10 +536,29 @@ a {
   .contact__information > img {
     display: none;
   }
+  .contact__information a {
+    font-size: 2.5rem;
+  }
+  .contact__information a img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  .contact__information .work-time {
+    font-size: 2rem;
+  }
+  .contact__social-links {
+    gap: 1.2rem;
+  }
+  .contact__social-links img {
+    height: 2rem;
+  }
 }
 @media (max-width: 576px) {
   html {
     font-size: 9px;
+  }
+  .contact__social-links {
+    display: none;
   }
 }
 @media (max-width: 375px) {
@@ -779,10 +798,6 @@ a {
     width: 3rem;
     height: 3rem;
   }
-  .header__container {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-  }
   .try-our-app-button {
     padding: 1rem 1.25rem;
   }
@@ -795,6 +810,10 @@ a {
   }
 }
 @media (max-width: 800px) {
+  .header__container {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
   #bars {
     display: flex !important;
     width: 4rem;
@@ -857,7 +876,7 @@ a {
     list-style-type: none;
     display: flex;
     flex-direction: column;
-    margin-top: 150px;
+    margin-top: 200px;
   }
   .bar-menu__list li {
     font-size: 3rem;
@@ -871,6 +890,17 @@ a {
   }
   .disable-scroll {
     overflow: hidden;
+  }
+  .logo {
+    width: 19rem;
+  }
+  .try-our-app-button {
+    padding: 1rem 1.25rem;
+    font-size: 1.4rem;
+  }
+  .container {
+    padding-left: 4rem;
+    padding-right: 4rem;
   }
 }
 @media (max-width: 576px) {
@@ -891,6 +921,40 @@ a {
   }
   .bar-menu__container {
     top: -20vh !important;
+  }
+  .logo {
+    width: 17rem;
+  }
+  .try-our-app-button {
+    padding: 1rem 1.25rem;
+    font-size: 1.2rem;
+  }
+  .container {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+@media (max-width: 375px) {
+  #bars span {
+    width: 28px;
+  }
+  #bars .first-bar {
+    top: 4px;
+    height: 2px;
+  }
+  #bars .last-bar {
+    bottom: 4px;
+    height: 2px;
+  }
+  #bars .middle-bar {
+    top: 45%;
+    height: 2px;
+  }
+  .hamburger-x .first-bar {
+    width: 88% !important;
+  }
+  .hamburger-x .last-bar {
+    width: 88% !important;
   }
 }
 .chatbot__container {

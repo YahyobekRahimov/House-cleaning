@@ -1,6 +1,6 @@
 .header {
-  padding-top: 24px;
-  padding-bottom: 24px;
+  padding-top: $fs-24;
+  padding-bottom: $fs-24;
 }
 
 .header__container {
@@ -14,7 +14,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: $fs-24;
   a {
     color: #332942;
     font-size: $fs-18;
@@ -30,21 +30,21 @@
     }
   }
   // .arrow-down {
-  //   width: 24px;
-  //   height: 24px;
+  //   width: $fs-24;
+  //   height: $fs-24;
   // }
 
   & > :first-child a {
     display: flex;
     align-items: center;
-    gap: 2px;
+    gap: 0.125rem;
   }
 }
 
 .header__features {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: $fs-24;
 }
 
 .try-our-app-button {
@@ -53,7 +53,7 @@
   font-size: $fs-16;
   font-weight: 600;
   line-height: 100%; /* 16px */
-  border-radius: 12px;
+  border-radius: $fs-12;
   border: 1px solid $clr-green-900;
   padding: 16px 20px;
 }
@@ -61,7 +61,7 @@
   width: 48px;
   height: 48px;
   background-color: $clr-gray-800;
-  border-radius: 12px;
+  border-radius: $fs-12;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,7 +98,7 @@
   font-size: $fs-14;
   font-weight: 600;
   line-height: $fs-24; /* 171.429% */
-  border-radius: 12px;
+  border-radius: $fs-12;
 }
 
 .bar-appear {
@@ -127,6 +127,17 @@
   padding-top: 20px;
   padding-bottom: 20px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.fixed-header::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.03);
+  top: 0;
+  left: 0;
+  pointer-events: none;
 }
 
 @media (max-width: 1440px) {

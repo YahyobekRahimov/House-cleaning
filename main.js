@@ -14,6 +14,11 @@ const hrCount = LIST_ITEMS.length - 1;
 const hrArray = [];
 addNavLinksToBarMenu();
 
+function scrollToTop() {
+  window.scrollTo({
+    top: 0
+  });
+}
 
 function addNavLinksToBarMenu() {
   if (determineSize() > 800) {
@@ -37,6 +42,7 @@ function disableScrolling() {
 BARS.addEventListener("click", function () {
   BARS.classList.toggle("hamburger-x");
   BAR_SECTION.classList.toggle("bar-appear");
+  scrollToTop();
   disableScrolling();
 });
 

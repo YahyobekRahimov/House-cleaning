@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 
 <head>
     <meta charset="UTF-8">
@@ -71,9 +71,21 @@
                     <button id="change-theme-button">
                         <img src="./images/sun.svg" alt="sun">
                     </button>
-                    <button id="change-lang-button">
-                        UZ
-                    </button>
+                    <div class="change-lang-button-wrapper">
+                        <button id="change-lang-button" class="uzbek">
+                            <img class="uzbek-img" src="./images/Uzbekistan.svg" alt="uzbekistan flag">
+                        </button>
+                        <ul class="lang-list">
+                            <li>
+                                <button class="russian first-list-language"><img class="russian-img"
+                                        src="./images/Russian-Federation.svg" alt="Russian flag"></button>
+                            </li>
+                            <li>
+                                <button class="english second-list-language"><img class="english-img"
+                                        src="./images/Great-Britain.svg" alt="Great Britain flag"></button>
+                            </li>
+                        </ul>
+                    </div>
                     <button>
                         Ilovamizni sinab ko'ring
                     </button>
@@ -459,5 +471,6 @@
 </body>
 
 <script src="main.js" type="module"></script>
+<script src="lang-handling.js"></script>
 
 </html>

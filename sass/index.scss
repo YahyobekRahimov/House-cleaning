@@ -2,8 +2,12 @@
 @import "./normalize";
 @import "./fonts";
 @import "./general";
-@import "../component-styles/contact";
-@import "../component-styles/footer";
-@import "../component-styles/header";
+@import "./components-styles/contact";
+@import "./components-styles/footer";
+@import "./components-styles/header";
 
-
+main {
+  img {
+    width: 100%;
+  }
+}

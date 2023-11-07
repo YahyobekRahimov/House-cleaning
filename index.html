@@ -6,23 +6,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toza makon</title>
     <link rel="stylesheet" href="./styles/index.css">
+    <link rel="shortcut icon" href="./images/toza-makon-icon.svg" type="image/x-icon">
 </head>
 
 <body>
-    <script>
-        fetch('./components/contact.html')
-            .then(response => response.text())
-            .then(headerHtml => {
-                document.querySelector('.header').insertAdjacentHTML('beforeend', headerHtml);
-            });
-        fetch('./components/header.html')
-            .then(response => response.text())
-            .then(headerHtml => {
-                document.querySelector('.header').insertAdjacentHTML('beforeend', headerHtml);
-            });
-    </script>
-    <!-- ! Header section -->
-    <header class="header"></header>
+
+    <header class="header">
+        <!-- ! contact section -->
+        <section class="contact">
+            <div class="container contact__container">
+                <div class="contact__information">
+                    <a href="tel:7757">
+                        <img src="./images/call.svg" alt="call">
+                        <span class="phone-number">77 57</span>
+                    </a>
+                    <img src="./images/line.svg" alt="line">
+                    <span class="information__action">Xizmatlarimiz haqida bepul ma’lumot olish uchun qo'ng'iroq
+                        qiling!</span>
+                    <img src="./images/line.svg" alt="line">
+                    <span>Ish vaqti: 09:00 - 18:00</span>
+                </div>
+                <div class="contact__social-links">
+                    <a href="#">
+                        <img src="./images/icon_youTube.svg" alt="youtube page">
+                    </a>
+                    <a href="#">
+                        <img src="./images/icon_telegram.svg" alt="telegram page">
+                    </a>
+                    <a href="#">
+                        <img src="./images/icon_instagram.svg" alt="instagram page">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ! header section -->
+
+        <section>
+            <div class="container header__container">
+                <button id="bars">
+                    <span class="first-bar"></span>
+                    <span class="middle-bar"></span>
+                    <span class="last-bar"></span>
+                </button>
+                <a href="#">
+                    <img class="logo" src="./images/logo.svg" alt="logo">
+                </a>
+                <nav>
+                    <ul class="header__nav">
+                        <li>
+                            <a href="#">
+                                Xizmatlar
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">Blog</a>
+                        </li>
+                        <li>
+                            <a href="#">Biz haqimizda</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header__features">
+                    <button id="change-theme-button">
+                        <img src="./images/sun.svg" alt="sun">
+                    </button>
+                    <button id="change-lang-button">
+                        UZ
+                    </button>
+                    <button>
+                        Ilovamizni sinab ko'ring
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </header>
+
+    <section class="bar-menu">
+        <div class="container bar-menu__container">
+            <ul class="bar-menu__list">
+            </ul>
+        </div>
+    </section>
     <!-- ! Main -->
 
     <main class="main">
@@ -324,21 +390,74 @@
 
             </div>
         </section>
+
+        <section class="chatbot">
+            <div class="container chatbot__container">
+                <button class="live-chat-button">
+                    <img src="./images/live-chat.svg" alt="live chat button">
+                </button>
+            </div>
+        </section>
     </main>
 
-    <footer class="footer"></footer>
-    <script>
-        fetch('./components/footer.html')
-            .then(response => response.text())
-            .then(headerHtml => {
-                document.querySelector('.footer').insertAdjacentHTML('beforeend', headerHtml);
-            });
-        fetch('./components/contact.html')
-            .then(response => response.text())
-            .then(headerHtml => {
-                document.querySelector('.footer').insertAdjacentHTML('beforeend', headerHtml);
-            });
-    </script>
+    <footer class="footer">
+        <div class="container footer__container">
+            <!-- * CTA (call to action) -->
+            <div class="footer__cta">
+
+                <p class="footer__cta__subtitle">
+                    Biz uchun
+                </p>
+                <h2 class="footer__cta__title">
+                    Yana savollaringiz bormi?
+                </h2>
+                <p class="footer__cta__description">
+                    Sizni qiynayotgan savollaringiz bo’lsa biz bilan bog’laning! Mutaxassislarimiz sizning
+                    savollaringizga javob
+                    berishadi!
+                </p>
+                <button class="footer__cta__button">
+                    Buyurtma qilish
+                </button>
+            </div>
+
+            <a href="#">
+                <img src="./images/toza-makon-icon.svg" alt="logo icon">
+                <img src="./images/toza-makon.svg" alt="Toza makon">
+                <span class="slogan">Tozalik biz bilan boshlanadi</span>
+            </a>
+
+        </div>
+        <!-- ! Contact section -->
+        <section class="contact">
+            <div class="container contact__container">
+                <div class="contact__information">
+                    <a href="tel:7757">
+                        <img src="./images/call.svg" alt="call">
+                        <span class="phone-number">77 57</span>
+                    </a>
+                    <img src="./images/line.svg" alt="line">
+                    <span class="information__action">Xizmatlarimiz haqida bepul ma’lumot olish uchun qo'ng'iroq
+                        qiling!</span>
+                    <img src="./images/line.svg" alt="line">
+                    <span>Ish vaqti: 09:00 - 18:00</span>
+                </div>
+                <div class="contact__social-links">
+                    <a href="#">
+                        <img src="./images/icon_youTube.svg" alt="youtube page">
+                    </a>
+                    <a href="#">
+                        <img src="./images/icon_telegram.svg" alt="telegram page">
+                    </a>
+                    <a href="#">
+                        <img src="./images/icon_instagram.svg" alt="instagram page">
+                    </a>
+                </div>
+            </div>
+        </section>
+    </footer>
 </body>
+
+<script src="main.js" type="module"></script>
 
 </html>

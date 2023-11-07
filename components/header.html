@@ -1,14 +1,21 @@
-<!-- ! header-main section -->
+<!-- ! header section -->
 
 <section>
-    <div class="container header-main__container">
+    <div class="container header__container">
+        <button id="bars">
+            <span class="first-bar"></span>
+            <span class="middle-bar"></span>
+            <span class="last-bar"></span>
+        </button>
         <a href="#">
-            <img src="./images/logo.svg" alt="logo">
+            <img class="logo" src="./images/logo.svg" alt="logo">
         </a>
         <nav>
-            <ul>
+            <ul class="header__nav">
                 <li>
-                    <a href="#">Xizmatlar</a>
+                    <a href="#">
+                        Xizmatlar
+                    </a>
                 </li>
                 <li>
                     <a href="#">Blog</a>
@@ -18,7 +25,7 @@
                 </li>
             </ul>
         </nav>
-        <div class="header-main__features">
+        <div class="header__features">
             <button id="change-theme-button">
                 <img src="./images/sun.svg" alt="sun">
             </button>
@@ -29,5 +36,12 @@
                 Ilovamizni sinab ko'ring
             </button>
         </div>
+    </div>
+</section>
+
+<section class="bar-menu" style="display: none;">
+    <div class="container bar-menu__container">
+        <ul class="bar-menu__list">
+        </ul>
     </div>
 </section>

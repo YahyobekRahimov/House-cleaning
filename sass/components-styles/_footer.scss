@@ -70,3 +70,90 @@
   line-height: 1.5em; /* 150% */
   margin-top: 12px;
 }
+
+@media (max-width: 1440px) {
+  .footer {
+    padding: 5rem 5rem 6.25rem;
+  }
+
+  .footer__cta {
+    padding: 3rem 0;
+    border-radius: 2rem;
+  }
+
+  .footer__cta__subtitle {
+    font-size: 1.5rem;
+  }
+
+  .footer__cta__title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer__cta__description {
+    font-size: 1rem;
+    width: 70%;
+    margin-bottom: 3rem;
+  }
+
+  .footer__cta__button {
+    font-size: 1rem;
+    padding: 1rem 1.25rem;
+    border-radius: 0.75rem;
+  }
+
+  .footer__logo {
+    margin-top: 3.5rem;
+  }
+
+  .slogan {
+    font-size: 1rem;
+    margin-top: 0.75rem;
+  }
+}
+@media (max-width: 768px) {
+  .footer__cta__subtitle {
+    font-size: 1.8rem;
+  }
+  .footer__cta__title {
+    font-size: 2.5rem;
+  }
+  .footer__cta__description {
+    font-size: 1.3rem;
+  }
+  .footer__cta__button {
+    font-size: 2rem;
+    padding: 1.8rem 2rem;
+  }
+  .footer__logo {
+    & > :first-child {
+      width: 9rem;
+    }
+    & > :nth-child(2) {
+      width: 22rem;
+    }
+    .slogan {
+      font-size: 1.7rem;
+    }
+  }
+  .footer {
+    padding: 4rem 4rem 5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer__cta__description {
+    line-height: 1.8em;
+  }
+  .footer {
+    padding: 3rem 2rem 2.5rem;
+  }
+  .footer__logo {
+    & > :first-child {
+      width: 7rem;
+    }
+    & > :nth-child(2) {
+      width: 17rem;
+    }
+  }
+}

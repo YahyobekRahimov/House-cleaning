@@ -1,3 +1,5 @@
+from collections.abc import Iterable
+import uuid
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
@@ -27,6 +29,8 @@ class CustomUserManager(BaseUserManager):
 #_________________________________________________________________________________
 #_________________________________________________________________________ Country
 class Country(models.Model):
+    unique_id = models.CharField(max_length=10, unique=True, blank=False, null=True)
+
     name = models.CharField(max_length=256, blank=False, null=True)
     # regions
 
@@ -34,6 +38,10 @@ class Country(models.Model):
         self.name = self.name.capitalize()
         return super().clean()
     
+    
+    def save(self, *args, **kwargs):
+        self.unique_id = str(uuid.uuid4().int)[:10]
+        return super().save(*args, **kwargs)
     def __str__(self) -> str:
         return self.name
     class Meta:
@@ -41,6 +49,8 @@ class Country(models.Model):
     
 #_________________________________________________________________________ Region
 class Region(models.Model):
+    unique_id = models.CharField(max_length=10, unique=True, blank=False, null=True)
+
     name = models.CharField(max_length=64, blank=False, null=True)
     country = models.ForeignKey(Country, on_delete=models.CASCADE, max_length=30, related_name='regions', null=True)
     # districts
@@ -49,11 +59,17 @@ class Region(models.Model):
         self.name = self.name.capitalize()
         return super().clean()
     
+    
+    def save(self, *args, **kwargs):
+        self.unique_id = str(uuid.uuid4().int)[:10]
+        return super().save(*args, **kwargs)
     def __str__(self) -> str:
         return self.name
 
 #_________________________________________________________________________ District
 class District(models.Model):
+    unique_id = models.CharField(max_length=10, unique=True, blank=False, null=True)
+
     name = models.CharField(max_length=64, blank=False, null=True)
     region = models.ForeignKey(Region, on_delete=models.CASCADE, max_length=30, related_name='districts', null=True) 
     # villages
@@ -62,12 +78,18 @@ class District(models.Model):
         self.name = self.name.capitalize()
         return super().clean()
     
+    
+    def save(self, *args, **kwargs):
+        self.unique_id = str(uuid.uuid4().int)[:10]
+        return super().save(*args, **kwargs)
     def __str__(self) -> str:
         return self.name
 
 #_________________________________________________________________________ Village
 
 class Village(models.Model):
+    unique_id = models.CharField(max_length=10, unique=True, blank=False, null=True)
+
     name = models.CharField(max_length=64, blank=False, null=True)
     district = models.ForeignKey(District, on_delete=models.CASCADE, max_length=30, related_name='villages', null=True)
     # services
@@ -77,6 +99,10 @@ class Village(models.Model):
         self.name = self.name.capitalize()
         return super().clean()
     
+    
+    def save(self, *args, **kwargs):
+        self.unique_id = str(uuid.uuid4().int)[:10]
+        return super().save(*args, **kwargs)
     def __str__(self) -> str:
         return self.name
 
@@ -120,49 +146,80 @@ class User(AbstractUser):
                 fields=['email'],
             )
         ]
+    
+    def save(self, *args, **kwargs):
+        self.unique_id = str(uuid.uuid4().int)[:10]
+        return super().save(*args, **kwargs)
     def __str__(self):
         return self.email
     
 #_________________________________________________________________________ Position
 class Position(models.Model):
+    unique_id = models.CharField(max_length=10, unique=True, blank=False, null=True)
+
     user = models.ForeignKey(User, related_name='positions', on_delete=models.CASCADE)
     name = models.CharField(max_length=128, blank=False)
 
+    def save(self, *args, **kwargs):
+        self.unique_id = str(uuid.uuid4().int)[:10]
+        return super().save(*args, **kwargs)
 
 
 #_________________________________________________________________________ Phone
 class Phone(models.Model):
+    unique_id = models.CharField(max_length=10, unique=True, blank=False, null=True)
+
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True, related_name='phones')
     phone = PhoneNumberField()
-
+    
+    def save(self, *args, **kwargs):
+        self.unique_id = str(uuid.uuid4().int)[:10]
+        return super().save(*args, **kwargs)
     def __str__(self) -> str:
         return self.phone
+    
 
 #_________________________________________________________________________ Location
 class Location(models.Model):
+    unique_id = models.CharField(max_length=10, unique=True, blank=False, null=True)
+
     user = models.ForeignKey(User, blank=True, null=True, related_name='locations', on_delete=models.CASCADE)
     latitude = models.CharField(max_length=32, null=True)
     longitude = models.CharField(max_length=32, null=True)
 
+    
+    def save(self, *args, **kwargs):
+        self.unique_id = str(uuid.uuid4().int)[:10]
+        return super().save(*args, **kwargs)
     def __str__(self):
         return self.latitude + '-' + self.longitude
 
 #_________________________________________________________________________ Measurment
 class Measurment(models.Model):
+    unique_id = models.CharField(max_length=10, unique=True, blank=False, null=True)
+
     name = models.CharField(max_length=24, blank=False, null=True)
 
 #_________________________________________________________________________ Pricing
 class Pricing(models.Model):
+    unique_id = models.CharField(max_length=10, unique=True, blank=False, null=True)
+
     n = models.PositiveSmallIntegerField(null=True)
     measurment = models.ForeignKey(Measurment, related_name='pricings', on_delete=models.CASCADE)
     price = models.FloatField(null=True)
     # services
     
+    
+    def save(self, *args, **kwargs):
+        self.unique_id = str(uuid.uuid4().int)[:10]
+        return super().save(*args, **kwargs)
     def __str__(self) -> str:
         return self.price + ' for '  + str(self.n)
 
 #_________________________________________________________________________ Category
 class Category(models.Model):
+    unique_id = models.CharField(max_length=10, unique=True, blank=False, null=True)
+
     name = models.CharField(max_length=255, null=True)
     parent = models.ForeignKey('self', null=True, blank=True, on_delete=models.CASCADE, related_name='children')
     # children
@@ -174,6 +231,10 @@ class Category(models.Model):
         self.name = self.name.capitalize()
         return super().clean()
     
+    
+    def save(self, *args, **kwargs):
+        self.unique_id = str(uuid.uuid4().int)[:10]
+        return super().save(*args, **kwargs)
     def __str__(self):
         return self.name
     class Meta:
@@ -181,6 +242,8 @@ class Category(models.Model):
 
 #_________________________________________________________________________ Service
 class Service(models.Model):
+    unique_id = models.CharField(max_length=10, unique=True, blank=False, null=True)
+
     name = models.CharField(max_length=256, blank=False, null=True)
     category = models.ManyToManyField(Category, related_name='services',)
     info = models.TextField(blank=False, null=True)
@@ -194,11 +257,17 @@ class Service(models.Model):
     def clean(self):
         self.name = self.name.capitalize()
         return super().clean()
+    
+    def save(self, *args, **kwargs):
+        self.unique_id = str(uuid.uuid4().int)[:10]
+        return super().save(*args, **kwargs)
     def __str__(self):
         return f'{self.name} (since {self.since_date})'
 
 #_________________________________________________________________________ Order
 class Order(models.Model):
+    unique_id = models.CharField(max_length=10, unique=True, blank=False, null=True)
+
     service = models.ForeignKey(Service, related_name='orders', on_delete=models.SET_NULL, null=True)
     client = models.ForeignKey(User, related_name='orders', on_delete=models.SET_NULL, null=True)
     status = models.CharField(max_length=16, choices=(('pending', 'pending'), ('process', 'process'), ('done', 'done'), ('rejected', 'rejected')), blank=False, null=True)
@@ -213,11 +282,17 @@ class Order(models.Model):
         self.client_name = self.client if self.client else None
         super().save(*args, **kwargs)
 
+    
+    def save(self, *args, **kwargs):
+        self.unique_id = str(uuid.uuid4().int)[:10]
+        return super().save(*args, **kwargs)
     def __str__(self) -> str:
         return f"{self.client_name}: {self.service_name} - {self.status}"
 
 #_________________________________________________________________________ Comment
 class Comment(models.Model):
+    unique_id = models.CharField(max_length=10, unique=True, blank=False, null=True)
+
     GRADES = (
         ('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5'),
         ('6', '6'), ('7', '7'), ('8', '8'), ('9', '9'), ('10', '10'),
@@ -228,11 +303,17 @@ class Comment(models.Model):
     reason = models.TextField(blank=False, null=True)
     date = models.DateTimeField(auto_created=True, null=True)
     order = models.ForeignKey(Order, related_name='comments', on_delete=models.CASCADE)
+    
+    def save(self, *args, **kwargs):
+        self.unique_id = str(uuid.uuid4().int)[:10]
+        return super().save(*args, **kwargs)
     def __str__(self) -> str:
         return self.reason[:50]
 
 #_________________________________________________________________________ Visit
 class Visit(models.Model):
+    unique_id = models.CharField(max_length=10, unique=True, blank=False, null=True)
+
     started = models.DateTimeField(blank=True, null=True)
     finished = models.DateTimeField(blank=True, null=True)
     # photos
@@ -240,6 +321,10 @@ class Visit(models.Model):
     info = models.TextField(blank=True, null=True)
     order = models.ForeignKey(Order, related_name='visits', on_delete=models.CASCADE)
     
+    
+    def save(self, *args, **kwargs):
+        self.unique_id = str(uuid.uuid4().int)[:10]
+        return super().save(*args, **kwargs)
     def __str__(self) -> str:
         return f'{self.started}-{self.finished}'
 
@@ -247,24 +332,91 @@ class Visit(models.Model):
 
 #_________________________________________________________________________ Service Photo
 class ServicePhoto(models.Model):
+    unique_id = models.CharField(max_length=10, unique=True, blank=False, null=True)
+
     photo = models.ImageField(upload_to='images/services', null=True)
     service = models.ForeignKey(Service, on_delete=models.CASCADE, null=True, related_name='photos')
+    
+    def save(self, *args, **kwargs):
+        self.unique_id = str(uuid.uuid4().int)[:10]
+        return super().save(*args, **kwargs)
     def __str__(self):
         return f"(photo) {self.service.name}"
 
 #_________________________________________________________________________ Visit Photo
 class VisitPhoto(models.Model):
+    unique_id = models.CharField(max_length=10, unique=True, blank=False, null=True)
+
     photo = models.ImageField(upload_to='images/visits', null=True)
     visit = models.ForeignKey(Visit, related_name='photos', on_delete=models.CASCADE)
 
+    
+    def save(self, *args, **kwargs):
+        self.unique_id = str(uuid.uuid4().int)[:10]
+        return super().save(*args, **kwargs)
     def __str__(self):
         return f"(photo) {self.visit}"
 
 #_________________________________________________________________________ Video
 class Video(models.Model):
+    unique_id = models.CharField(max_length=10, unique=True, blank=False, null=True)
+
     name = models.CharField(max_length=256)
     url = models.URLField(blank=False, null=True)
 
+    
+    def save(self, *args, **kwargs):
+        self.unique_id = str(uuid.uuid4().int)[:10]
+        return super().save(*args, **kwargs)
     def __str__(self):
         return self.name + " Video"
 
+#_________________________________________________________________________ Company
+
+class Link(models.Model):
+    unique_id = models.CharField(max_length=10, unique=True, blank=False, null=True)
+
+    link = models.URLField(blank=False, null=True)
+    name = models.CharField(max_length=32, blank=False, null=True)
+    
+    def save(self, *args, **kwargs):
+        self.unique_id = str(uuid.uuid4().int)[:10]
+        return super().save(*args, **kwargs)
+    def __str__(self) -> str:
+        return f'{self.name}'
+class BranchPhone(models.Model):
+    unique_id = models.CharField(max_length=10, unique=True, blank=False, null=True)
+
+    phone = PhoneNumberField(blank=False, null=True, default='7757')
+    
+    def save(self, *args, **kwargs):
+        self.unique_id = str(uuid.uuid4().int)[:10]
+        return super().save(*args, **kwargs)
+    def __str__(self) -> str:
+        return f'{self.phone}'
+    
+class Branch(models.Model):
+    unique_id = models.CharField(max_length=10, unique=True, blank=False, null=True)
+    key = models.CharField(max_length=32, blank=False, null=True)
+    name = models.CharField(max_length=512, blank=False, null=True)
+    shortPhone = models.CharField(max_length=6, blank=True)
+    work_time_start = models.CharField(max_length=5, blank=False, null=True)
+    work_time_end = models.CharField(max_length=5, blank=False, null=True)
+
+    phones = models.ManyToManyField(BranchPhone, related_name='branches', blank=True)
+    links = models.ManyToManyField(Link, related_name='branches', blank=True)
+    
+    
+    def save(self, *args, **kwargs):
+        self.unique_id = str(uuid.uuid4().int)[:10]
+        return super().save(*args, **kwargs)
+    def __str__(self) -> str:
+        return f'{self.key} ({self.name})'
+
+class Endpoint(models.Model):
+    endpoints = (
+        ('branch', 'branch'),
+
+    )
+    name = models.CharField(max_length=128, blank=False, null=True, choices=endpoints)
+    key = models.CharField(max_length=10, blank=False, null=True)

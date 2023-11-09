@@ -9,6 +9,8 @@ django-phonenumber-field = "*"
 phonenumbers = "*"
 pillow = "*"
 six = "*"
+djangorestframework = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 

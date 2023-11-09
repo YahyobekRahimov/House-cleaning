@@ -37,8 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # external apps
+    # external apps,
+    'corsheaders',
     'phonenumber_field',
+    'rest_framework',
     # internall apps
     'core',
 ]
@@ -47,6 +49,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -154,3 +157,19 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'cleanlife.uzb@gmail.com'
 EMAIL_HOST_PASSWORD = 'oaol phgr iafs pokm '
+
+
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',  # Replace with the URL of your React app
+]
+
+
+# CORS_ALLOW_METHODS = [
+#     'GET',
+#     'POST',
+# ]
+# CORS_ALLOW_HEADERS = [
+#     'Content-Type',
+# ]

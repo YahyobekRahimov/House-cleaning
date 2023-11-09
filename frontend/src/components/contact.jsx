@@ -9,11 +9,30 @@ const callNumber = 7757;
 const workingTimeStart = `09:00`;
 const workingTimeEnd = `18:00`;
 
-const socialLinks = {
-    "youtube": `https://youtube.com/house-cleaning`,
-    "telegram": `https://t.me/house-cleaning`,
-    "instagram": `https://instagram.com/house-cleaning`
-}
+const socialLinks = [
+  {
+    name: 'youtube',
+    link: 'https://youtube.com/house-cleaning',
+    icon: <YoutubeIcon />
+  },
+  {
+    name: 'telegram',
+    link: `https://t.me/house-cleaning`,
+    icon: <TelegramIcon />
+  },
+  {
+    name: 'instagram',
+    link: `https://instagram.com/house-cleaning`,
+    icon: <InstagramIcon />
+  },
+]
+
+const mappedSocialLinks = socialLinks.map((item) => {
+  <a href={item.link} target="_blank">
+    <YoutubeIcon />
+    {/*item.name*/}
+  </a>
+})
 
 function Contact() {
   return (
@@ -32,15 +51,7 @@ function Contact() {
           <span className="work-time">Ish vaqti: {workingTimeStart} - {workingTimeEnd}</span>
         </div>
         <div className="contact__social-links">
-          <a href={socialLinks["youtube"]} target="_blank">
-            <YoutubeIcon />
-          </a>
-          <a href={socialLinks["telegram"]} target="_blank">
-            <TelegramIcon />
-          </a>
-          <a href={socialLinks["instagram"]} target="_blank">
-            <InstagramIcon />
-          </a>
+          {mappedSocialLinks}
         </div>
       </div>
     </section>

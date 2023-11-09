@@ -6,7 +6,7 @@ import Iphone15Pro2x from '../images/iphone-15-2x.png';
 import Iphone15Pro3x from '../images/iphone-15-3x.png';
 
 function Iphone15Pro() {
-    <picture>
+    return <picture>
             <source media="(min-width: 1200px)" srcSet={Iphone15Pro3x} />
 
             <source media="(min-width: 800px)" srcSet={Iphone15Pro2x} />

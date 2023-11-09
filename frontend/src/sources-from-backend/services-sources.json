@@ -1,0 +1,64 @@
+{
+    "services": [
+        {
+        "id": 1,
+        "title": "Uylarni tozalash",
+        "description": "Biz sizning uyingiz va ofisingiz tozaligi va farovonligi uchun keng ko'lamli xizmatlarni taqdim etamiz.",
+        "picture": "https://picsum.photos/200"
+        },
+        {
+        "id": 2,
+        "title": "Ofislarni tozalash",
+        "description": "Biz sizning uyingiz va ofisingiz tozaligi va farovonligi uchun keng ko'lamli xizmatlarni taqdim etamiz.",
+        "picture": "https://picsum.photos/200"        
+        },
+        {
+        "id": 3,
+        "title": "Bog’larni tozalash",
+        "description": "Biz sizning uyingiz va ofisingiz tozaligi va farovonligi uchun keng ko'lamli xizmatlarni taqdim etamiz.",
+        "picture": "https://picsum.photos/200"        
+        },
+        {
+        "id": 4,
+        "title": "Yashil maydonlarni tozalash",
+        "description": "Biz sizning uyingiz va ofisingiz tozaligi va farovonligi uchun keng ko'lamli xizmatlarni taqdim etamiz.",
+        "picture": "https://picsum.photos/200"        
+        },
+        {
+        "id": 5,
+        "title": "Qurilish joylarini tozalash",
+        "description": "Biz sizning uyingiz va ofisingiz tozaligi va farovonligi uchun keng ko'lamli xizmatlarni taqdim etamiz.",
+        "picture": "https://picsum.photos/200"        
+        },
+        {
+        "id": 6,
+        "title": "Umumiy tozalash",
+        "description": "Biz sizning uyingiz va ofisingiz tozaligi va farovonligi uchun keng ko'lamli xizmatlarni taqdim etamiz.",
+        "picture": "https://picsum.photos/200"        
+        },
+        {
+        "id": 7,
+        "title": "Mebellarni tozalash",
+        "description": "Biz sizning uyingiz va ofisingiz tozaligi va farovonligi uchun keng ko'lamli xizmatlarni taqdim etamiz.",
+        "picture": "https://picsum.photos/200"        
+        },
+        {
+        "id": 8,
+        "title": "Mebellarni tozalash",
+        "description": "Biz sizning uyingiz va ofisingiz tozaligi va farovonligi uchun keng ko'lamli xizmatlarni taqdim etamiz.",
+        "picture": "https://picsum.photos/200"        
+        },
+        {
+        "id": 9,
+        "title": "Mebellarni tozalash",
+        "description": "Biz sizning uyingiz va ofisingiz tozaligi va farovonligi uchun keng ko'lamli xizmatlarni taqdim etamiz.",
+        "picture": "https://picsum.photos/200"        
+        },
+        {
+        "id": 10,
+        "title": "Mebellarni tozalash",
+        "description": "Biz sizning uyingiz va ofisingiz tozaligi va farovonligi uchun keng ko'lamli xizmatlarni taqdim etamiz.",
+        "picture": "https://picsum.photos/200"        
+        }
+]
+}

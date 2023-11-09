@@ -1,28 +1,15 @@
-import './App.css';
-import Contact from './components/contact';
-import Header from './components/header';
-import BarMenu from './components/bar-menu';
-import LandingHero from './components/landing-hero';
-import WhyUs from './components/why-us';
-import Offers from './components/offers'; 
-import MobileApp from './components/mobile-app';
-import Feedbacks from './components/feedbacks';
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Services from './pages/Services';
 
 function App() {
   return (
-    <>
-      <Contact />
-      <Header />
-      <BarMenu />
-    <main>
-      <LandingHero />
-      <WhyUs />
-      <Offers />
-      <MobileApp />
-      <Feedbacks />
-    </main>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" index element={<Home />} />
+        <Route path="/services" element={<Services />} />
+      </Routes>
+    </Router>
   )
 }
 

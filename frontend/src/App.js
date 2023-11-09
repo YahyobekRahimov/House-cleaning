@@ -6,6 +6,8 @@ import LandingHero from './components/landing-hero';
 import WhyUs from './components/why-us';
 import Offers from './components/offers'; 
 import MobileApp from './components/mobile-app';
+import Feedbacks from './components/feedbacks';
+
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
       <WhyUs />
       <Offers />
       <MobileApp />
+      <Feedbacks />
     </main>
     </>
   )

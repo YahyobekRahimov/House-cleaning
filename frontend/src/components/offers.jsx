@@ -26,9 +26,9 @@ function DisinfectionGirl() {
     return (
         
     <picture>
-        <source media="(min-width: 1200px)" scrSet={DisinfectionGirl3x} />
+        <source media="(min-width: 1200px)" srcSet={DisinfectionGirl3x} />
 
-        <source media="(min-width: 800px)" scrSet={DisinfectionGirl2x} />
+        <source media="(min-width: 800px)" srcSet={DisinfectionGirl2x} />
 
         <img src={DisinfectionGirl1x} alt="Image Description" />
     </picture>
@@ -39,9 +39,9 @@ function GirlHoldingTools() {
     return (
         
     <picture>
-        <source media="(min-width: 1200px)" scrSet={GirlHoldingTools3x} />
+        <source media="(min-width: 1200px)" srcSet={GirlHoldingTools3x} />
 
-        <source media="(min-width: 800px)" scrSet={GirlHoldingTools2x} />
+        <source media="(min-width: 800px)" srcSet={GirlHoldingTools2x} />
 
         <img src={GirlHoldingTools1x} alt="Image Description" />
     </picture>
@@ -50,66 +50,66 @@ function GirlHoldingTools() {
 
 function offers() {
     return (
-        <section class="offers">
-            <div class="container offers__container">
+        <section className="offers">
+            <div className="container offers__container">
 
-                <div class="offers__intro">
+                <div className="offers__intro">
 
-                    <div class="offers__intro__subtitle">
+                    <div className="offers__intro__subtitle">
                         Biz siz uchun
                     </div>
-                    <h2 class="offers__intro__title">
+                    <h2 className="offers__intro__title">
                         Nimalarni taklif qilamiz
                     </h2>
-                    <p class="offers__intro__description">
+                    <p className="offers__intro__description">
                         Biz sizning uyingiz, ofisingiz tozaligi va farovonligi uchun quyidagi xizmatlarni taklif qilamiz
                     </p>
 
                 </div>
 
-                <div class="offers__cards">
+                <div className="offers__cards">
 
-                    <div class="offers__cards__block">
+                    <div className="offers__cards__block">
                         <GirlHoldingTools />
-                        <h3 class="cards__block__title">
+                        <h3 className="cards__block__title">
                             Tozalash xizmatlari
                         </h3>
-                        <p class="cards__block__description">
+                        <p className="cards__block__description">
                             Biz sizning uyingiz va ofisingiz tozaligi va farovonligi uchun keng ko'lamli xizmatlarni
                             taqdim etamiz.
                         </p>
-                        <button class="cards__block__button common-button">
+                        <button className="cards__block__button common-button">
                             Batafsil
                         </button>
 
                     </div>
 
-                    <div class="offers__cards__block">
+                    <div className="offers__cards__block">
                         <DisinfectionGirl />    
-                        <h3 class="cards__block__title">
+                        <h3 className="cards__block__title">
                             Dizinfeksiya xizmatlari
                         </h3>
-                        <p class="cards__block__description">
+                        <p className="cards__block__description">
                             Biz sizning uyingiz va ofisingiz tozaligi va farovonligi uchun keng ko'lamli xizmatlarni
                             taqdim etamiz.
                         </p>
-                        <button class="cards__block__button common-button">
+                        <button className="cards__block__button common-button">
                             Batafsil
                         </button>
 
                     </div>
 
-                    <div class="offers__cards__block">
+                    <div className="offers__cards__block">
 
                         <GirlWasher />
-                        <h3 class="cards__block__title">
+                        <h3 className="cards__block__title">
                             Yuvish xizmatlari
                         </h3>
-                        <p class="cards__block__description">
+                        <p className="cards__block__description">
                             Biz sizning uyingiz va ofisingiz tozaligi va farovonligi uchun keng ko'lamli xizmatlarni
                             taqdim etamiz.
                         </p>
-                        <button class="cards__block__button common-button">
+                        <button className="cards__block__button common-button">
                             Batafsil
                         </button>
 

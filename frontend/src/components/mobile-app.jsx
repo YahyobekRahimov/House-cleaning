@@ -18,20 +18,20 @@ function Iphone15Pro() {
 
 function MobileApp() {
     return (
-        <section class="mobile-app">
-            <div class="container mobile-app__container">
+        <section className="mobile-app">
+            <div className="container mobile-app__container">
 
-                <div class="mobile-app__intro">
-                    <p class="mobile-app__subtitle">
+                <div className="mobile-app__intro">
+                    <p className="mobile-app__subtitle">
                         Biz siz uchun
                     </p>
-                    <h2 class="mobile-app__title">
+                    <h2 className="mobile-app__title">
                         Ilovamizdan foydalanib ko’ring!
                     </h2>
-                    <p class="mobile-app__description">
+                    <p className="mobile-app__description">
                         Ilovamizni hoziroq yuklab oling va u orqali xizmatlarimizdan tez va oson foydalaning.
                     </p>
-                    <div class="google-apple-button-group">
+                    <div className="google-apple-button-group">
                         <a href="#">
                             <GooglePlayIcon />
                         </a>

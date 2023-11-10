@@ -204,7 +204,6 @@ class Location(models.Model):
 
 #_________________________________________________________________________ Measurment
 class Measurment(models.Model):
-
     name = models.CharField(max_length=24, blank=False, null=True)
 
 #_________________________________________________________________________ Pricing

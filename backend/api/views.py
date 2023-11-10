@@ -41,6 +41,7 @@ class MeasurmentViewSet(viewsets.ModelViewSet):
     queryset = Measurment.objects.all()
     serializer_class = MeasurmentSerializer
     http_method_names = ['get', 'post', 'put', 'patch', 'delete']
+    lookup_field = 'id'
 class PricingViewSet(viewsets.ModelViewSet):
     queryset = Pricing.objects.all()
     serializer_class = PricingSerializer
@@ -89,9 +90,6 @@ class BranchViewSet(viewsets.ModelViewSet):
     queryset = Branch.objects.all()
     serializer_class = BranchSerializer
     http_method_names = ['get', 'post', 'put', 'patch', 'delete'] 
-
-
-
 
 
 

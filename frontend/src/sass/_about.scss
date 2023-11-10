@@ -18,6 +18,7 @@
 .About__Hero__container {
   display: flex;
   align-items: center;
+  margin-top: 100px;
   iframe {
     border-radius: 32px;
     position: relative;
@@ -48,6 +49,7 @@
     line-height: 24px; /* 150% */
     margin-bottom: 48px;
 }
+
 
 .stats-description {
     color: rgba(0, 0, 0, 0.5);

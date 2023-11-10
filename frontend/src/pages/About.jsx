@@ -7,6 +7,7 @@ import MobileApp from "../components/mobile-app";
 import Feedbacks from "../components/feedbacks";
 import Partners from "../components/partners";
 import AboutHero from "../components/AboutHero";
+import LiveChat from "../components/live-chat";
 
 function About() {
     return (
@@ -19,6 +20,7 @@ function About() {
                 <MobileApp />
                 <Feedbacks />
                 <Partners />
+                <LiveChat />
             </main>
             <Footer />
             <Contact />

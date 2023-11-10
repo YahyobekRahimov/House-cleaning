@@ -8,6 +8,8 @@ import Footer from '../components/footer';
 import Contact from '../components/contact';
 import Header from '../components/header';
 import BarMenu from '../components/bar-menu';
+import LiveChat from "../components/live-chat";
+
 function Home() {
     return (
     <>
@@ -21,6 +23,7 @@ function Home() {
         <MobileApp />
         <Feedbacks />
         <Partners />
+        <LiveChat />
       </main>
       <Footer />
       <Contact />

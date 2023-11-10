@@ -5,7 +5,7 @@ import { ReactComponent as Sun } from "../icons/sun.svg";
 import { ReactComponent as UzbekistanFlag } from "../icons/Uzbekistan.svg";
 import { ReactComponent as RussianFlag } from "../icons/Russian-Federation.svg";
 import { ReactComponent as BritainFlag } from "../icons/Great-Britain.svg";
-import { ReactComponent as Moon } from "../icons/moon.svg";
+import { ReactComponent as ArrowDown } from '../icons/arrow-down.svg';
 
 function Header() {
     const [dark, setDark] = useState(false);
@@ -31,7 +31,11 @@ function Header() {
           <nav>
             <ul className="header__nav">
               <li>
-                <Link to='/services'>Xizmatlar</Link>
+                <span>Xizmatlar <ArrowDown /></span>
+                <ul className="HeaderDropdown">
+                  <li><Link to='/services'>Tozalash xizmatlari</Link></li>
+                  <li><Link to='/other-services'>Boshqa xizmatlar</Link></li>
+                </ul>
               </li>
               <li>
                 <Link to='/blog'>Blog</Link>

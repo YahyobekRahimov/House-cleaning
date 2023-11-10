@@ -4,6 +4,7 @@ import BarMenu from "../components/bar-menu";
 import ServicesHero from "../components/services-hero";
 import ServicesOffers from "../components/Services-offers";
 import Footer from "../components/footer";
+import LiveChat from "../components/live-chat";
 
 function Services() {
   return (
@@ -14,6 +15,7 @@ function Services() {
       <main>
         <ServicesHero />
         <ServicesOffers /> 
+        <LiveChat />
       </main>
       <Footer />
       <Contact />

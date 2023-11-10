@@ -590,6 +590,7 @@ main img {
 .About__Hero__container {
   display: flex;
   align-items: center;
+  margin-top: 100px;
 }
 .About__Hero__container iframe {
   border-radius: 32px;
@@ -1256,7 +1257,8 @@ a {
   gap: 1.5rem;
 }
 
-.header__nav a {
+.header__nav a,
+.header__nav span {
   color: var(--clr-grey-900);
   font-size: 1.125rem;
   font-weight: 600;
@@ -1264,18 +1266,57 @@ a {
   transition: all 0.2s ease-in;
 }
 
-.header__nav a:hover {
+.header__nav a:hover,
+.header__nav span:hover {
   color: var(--clr-green-900);
 }
 
-.header__nav a:hover img {
+.header__nav span:hover svg {
   filter: invert(58%) sepia(89%) saturate(2083%) hue-rotate(108deg) brightness(95%) contrast(88%);
 }
 
-.header__nav > :first-child a {
+.header__nav > :first-child span {
   display: flex;
   align-items: center;
   gap: 0.125rem;
+  cursor: pointer;
+}
+
+.HeaderDropdown {
+  display: none;
+}
+
+.header__nav > :first-child {
+  position: relative;
+}
+
+.HeaderDropdown li {
+  padding: 10px 20px;
+  width: 200px;
+  cursor: pointer;
+  margin: 0px 3px 3px 4px;
+}
+.HeaderDropdown li:hover {
+  background-color: rgb(232, 230, 230);
+}
+.HeaderDropdown li:hover a {
+  color: var(--clr-black-900);
+}
+.HeaderDropdown li a {
+  font-size: 16px;
+  width: 100%;
+  height: 100%;
+}
+
+.header__nav > :first-child:hover ul {
+  padding-top: 0px;
+  display: block;
+  position: absolute;
+  bottom: -87px;
+  left: 0;
+  list-style-type: none;
+  background-color: var(--clr-white-900);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px, rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 
 .header__features {
@@ -1611,6 +1652,7 @@ main img {
   font-weight: 500;
   line-height: 1.5em; /* 150% */
   margin-bottom: 56px;
+  width: 80%;
 }
 
 .hero__button-group {

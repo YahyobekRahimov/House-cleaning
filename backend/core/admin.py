@@ -2,17 +2,9 @@ from django.contrib import admin
 from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from core.models import Country, Region, District, Village, User, Position, Phone, Location, Measurment, Pricing, Category, Service, Order, Comment, Visit, ServicePhoto, VisitPhoto, Video, Link, BranchPhone, Branch
+
+
 # Register your models here.
-
-# class CustomUserAdmin(BaseUserAdmin):
-#     fieldsets = (
-#         (None, {'fields': ('email', 'password')}),
-#         ('Personal Info', {'fields': ('profile_photo', 'bio')}),
-#         ('Permissions', {'fields': ('village',)}),
-#     )
-#     list_display = ('email', 'profile_photo', 'bio')
-#     search_fields = ('email', 'profile_photo', 'bio')
-
 admin.site.register(User)
 admin.site.register(Country)
 admin.site.register(Region)

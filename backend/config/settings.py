@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'rest_framework',
     # internall apps
+    'accaunts',
     'core',
+    'api'
 ]
 
 MIDDLEWARE = [

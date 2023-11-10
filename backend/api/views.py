@@ -3,7 +3,7 @@ from .models import Endpoint
 from rest_framework.decorators import api_view
 from rest_framework import viewsets
 from core.models import Country, Region, District, Village, User, Position, Phone, Location, Measurment, Pricing, Category, Service, Order, Comment, Visit, ServicePhoto, VisitPhoto, Video, Link, BranchPhone, Branch
-from .serializers import CountrySerializer, RegionSerializer, DistrictSerializer, VillageSerializer, UserSerializer, PositionSerializer, PhoneSerializer, LocationSerializer, MeasurmentSerializer, PricingSerializer, CategorySerializer, ServiceSerializer, OrderSerializer, CommentSerializer, VisitSerializer, ServicePhotoSerializer, VisitPhotoSerializer, VideoSerializer, LinkSerializer, BranchPhoneSerializer, BranchSerializer
+from .serializers import CountrySerializer, RegionSerializer, DistrictSerializer, VillageSerializer, UserSerializer, PositionSerializer, PhoneSerializer, LocationSerializer, MeasurmentSerializer, PricingSerializer, CategorySerializer, ServiceSerializer, OrderSerializer, CommentSerializer, VisitSerializer, ServicePhotoSerializer, VisitPhotoSerializer, VideoSerializer, LinkSerializer, BranchPhoneSerializer, BranchSerializer, EndpointSerializer
 
 class CountryViewSet(viewsets.ModelViewSet):
     queryset = Country.objects.all()
@@ -41,7 +41,6 @@ class MeasurmentViewSet(viewsets.ModelViewSet):
     queryset = Measurment.objects.all()
     serializer_class = MeasurmentSerializer
     http_method_names = ['get', 'post', 'put', 'patch', 'delete']
-    lookup_field = 'id'
 class PricingViewSet(viewsets.ModelViewSet):
     queryset = Pricing.objects.all()
     serializer_class = PricingSerializer
@@ -91,31 +90,8 @@ class BranchViewSet(viewsets.ModelViewSet):
     serializer_class = BranchSerializer
     http_method_names = ['get', 'post', 'put', 'patch', 'delete'] 
 
+class EndpointViewSet(viewsets.ModelViewSet):
+    queryset = Endpoint.objects.all()
+    serializer_class = EndpointSerializer
+    http_method_names = ['get', 'post', 'put', 'patch', 'delete'] 
 
-
-
-
-
-
-from rest_framework.response import Response
-from .serializers import BranchSerializer
-from core import models as m
-from django.http import HttpResponse, JsonResponse
-# @api_view(['GET', 'POST'])
-def contact(request, key):
-    if request.method == 'POST':
-        serializer = BranchSerializer(data=request.data)
-        if serializer.is_valid():
-            # Process the validated data
-            # Access the validated data using serializer.validated_data
-            return Response(serializer.validated_data, status=201)
-        else:
-            return Response(serializer.errors, status=400)
-    if key:
-        endpoint = Endpoint.objects.get(name='contact')
-        return JsonResponse({'old': key==endpoint.key})
-
-    branch = m.Branch.objects.all()
-    serializer = BranchSerializer(branch, many=True)
-    serialized_data = serializer.data
-    return Response(serialized_data)

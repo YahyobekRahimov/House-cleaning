@@ -1,3 +1,4 @@
+from collections.abc import Iterable
 import uuid
 from django.db import models
 from django.contrib.auth.models import AbstractUser
@@ -28,6 +29,7 @@ class CustomUserManager(BaseUserManager):
 #_________________________________________________________________________________
 #_________________________________________________________________________ Country
 class Country(models.Model):
+    new = models.CharField(max_length=10, blank=True, null=True)
 
     name = models.CharField(max_length=256, blank=False, null=True)
     # regions
@@ -38,10 +40,9 @@ class Country(models.Model):
     
     
     def save(self, *args, **kwargs):
-        endpoint = Endpoint.objects.get(name='contact')
-        endpoint.key = str(uuid.uuid4().int)[:10]
-        endpoint.save()
+        self.new = str(uuid.uuid4().int)[:10]
         return super().save(*args, **kwargs)
+    
     def __str__(self) -> str:
         return self.name
     class Meta:
@@ -49,6 +50,7 @@ class Country(models.Model):
     
 #_________________________________________________________________________ Region
 class Region(models.Model):
+    new = models.CharField(max_length=10, blank=True, null=True)
 
     name = models.CharField(max_length=64, blank=False, null=True)
     country = models.ForeignKey(Country, on_delete=models.CASCADE, max_length=30, related_name='regions', null=True)
@@ -60,15 +62,14 @@ class Region(models.Model):
     
     
     def save(self, *args, **kwargs):
-        endpoint = Endpoint.objects.get(name='contact')
-        endpoint.key = str(uuid.uuid4().int)[:10]
-        endpoint.save()
+        self.new = str(uuid.uuid4().int)[:10]
         return super().save(*args, **kwargs)
     def __str__(self) -> str:
         return self.name
 
 #_________________________________________________________________________ District
 class District(models.Model):
+    new = models.CharField(max_length=10, blank=True, null=True)
 
     name = models.CharField(max_length=64, blank=False, null=True)
     region = models.ForeignKey(Region, on_delete=models.CASCADE, max_length=30, related_name='districts', null=True) 
@@ -80,9 +81,7 @@ class District(models.Model):
     
     
     def save(self, *args, **kwargs):
-        endpoint = Endpoint.objects.get(name='contact')
-        endpoint.key = str(uuid.uuid4().int)[:10]
-        endpoint.save()
+        self.new = str(uuid.uuid4().int)[:10]
         return super().save(*args, **kwargs)
     def __str__(self) -> str:
         return self.name
@@ -90,6 +89,7 @@ class District(models.Model):
 #_________________________________________________________________________ Village
 
 class Village(models.Model):
+    new = models.CharField(max_length=10, blank=True, null=True)
 
     name = models.CharField(max_length=64, blank=False, null=True)
     district = models.ForeignKey(District, on_delete=models.CASCADE, max_length=30, related_name='villages', null=True)
@@ -102,9 +102,7 @@ class Village(models.Model):
     
     
     def save(self, *args, **kwargs):
-        endpoint = Endpoint.objects.get(name='contact')
-        endpoint.key = str(uuid.uuid4().int)[:10]
-        endpoint.save()
+        self.new = str(uuid.uuid4().int)[:10]
         return super().save(*args, **kwargs)
     def __str__(self) -> str:
         return self.name
@@ -151,36 +149,31 @@ class User(AbstractUser):
         ]
     
     def save(self, *args, **kwargs):
-        endpoint = Endpoint.objects.get(name='contact')
-        endpoint.key = str(uuid.uuid4().int)[:10]
-        endpoint.save()
+        self.new = str(uuid.uuid4().int)[:10]
         return super().save(*args, **kwargs)
     def __str__(self):
         return self.email
     
 #_________________________________________________________________________ Position
 class Position(models.Model):
+    new = models.CharField(max_length=10, blank=True, null=True)
 
     user = models.ForeignKey(User, related_name='positions', on_delete=models.CASCADE)
     name = models.CharField(max_length=128, blank=False)
 
     def save(self, *args, **kwargs):
-        endpoint = Endpoint.objects.get(name='contact')
-        endpoint.key = str(uuid.uuid4().int)[:10]
-        endpoint.save()
+        self.new = str(uuid.uuid4().int)[:10]
         return super().save(*args, **kwargs)
 
 
 #_________________________________________________________________________ Phone
 class Phone(models.Model):
-
+    new = models.CharField(max_length=10, blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True, related_name='phones')
     phone = PhoneNumberField()
     
     def save(self, *args, **kwargs):
-        endpoint = Endpoint.objects.get(name='contact')
-        endpoint.key = str(uuid.uuid4().int)[:10]
-        endpoint.save()
+        self.new = str(uuid.uuid4().int)[:10]
         return super().save(*args, **kwargs)
     def __str__(self) -> str:
         return self.phone
@@ -188,6 +181,7 @@ class Phone(models.Model):
 
 #_________________________________________________________________________ Location
 class Location(models.Model):
+    new = models.CharField(max_length=10, blank=True, null=True)
 
     user = models.ForeignKey(User, blank=True, null=True, related_name='locations', on_delete=models.CASCADE)
     latitude = models.CharField(max_length=32, null=True)
@@ -195,19 +189,26 @@ class Location(models.Model):
 
     
     def save(self, *args, **kwargs):
-        endpoint = Endpoint.objects.get(name='contact')
-        endpoint.key = str(uuid.uuid4().int)[:10]
-        endpoint.save()
+        self.new = str(uuid.uuid4().int)[:10]
         return super().save(*args, **kwargs)
     def __str__(self):
         return self.latitude + '-' + self.longitude
 
 #_________________________________________________________________________ Measurment
 class Measurment(models.Model):
+    new = models.CharField(max_length=10, blank=True, null=True)
     name = models.CharField(max_length=24, blank=False, null=True)
+    def save(self, *args, **kwargs):
+        if Measurment.objects.filter(name=self.name).exists():
+            raise ValueError("Duplicate measurement name")
+        self.new = str(uuid.uuid4().int)[:10]
+        return super().save(*args, **kwargs)
 
+    def __str__(self) -> str:
+        return self.name
 #_________________________________________________________________________ Pricing
 class Pricing(models.Model):
+    new = models.CharField(max_length=10, blank=True, null=True)
 
     n = models.PositiveSmallIntegerField(null=True)
     measurment = models.ForeignKey(Measurment, related_name='pricings', on_delete=models.CASCADE)
@@ -216,15 +217,14 @@ class Pricing(models.Model):
     
     
     def save(self, *args, **kwargs):
-        endpoint = Endpoint.objects.get(name='contact')
-        endpoint.key = str(uuid.uuid4().int)[:10]
-        endpoint.save()
+        self.new = str(uuid.uuid4().int)[:10]
         return super().save(*args, **kwargs)
     def __str__(self) -> str:
         return self.price + ' for '  + str(self.n)
 
 #_________________________________________________________________________ Category
 class Category(models.Model):
+    new = models.CharField(max_length=10, blank=True, null=True)
 
     name = models.CharField(max_length=255, null=True)
     parent = models.ForeignKey('self', null=True, blank=True, on_delete=models.CASCADE, related_name='children')
@@ -239,9 +239,7 @@ class Category(models.Model):
     
     
     def save(self, *args, **kwargs):
-        endpoint = Endpoint.objects.get(name='contact')
-        endpoint.key = str(uuid.uuid4().int)[:10]
-        endpoint.save()
+        self.new = str(uuid.uuid4().int)[:10]
         return super().save(*args, **kwargs)
     def __str__(self):
         return self.name
@@ -250,6 +248,7 @@ class Category(models.Model):
 
 #_________________________________________________________________________ Service
 class Service(models.Model):
+    new = models.CharField(max_length=10, blank=True, null=True)
 
     name = models.CharField(max_length=256, blank=False, null=True)
     category = models.ManyToManyField(Category, related_name='services',)
@@ -266,15 +265,14 @@ class Service(models.Model):
         return super().clean()
     
     def save(self, *args, **kwargs):
-        endpoint = Endpoint.objects.get(name='contact')
-        endpoint.key = str(uuid.uuid4().int)[:10]
-        endpoint.save()
+        self.new = str(uuid.uuid4().int)[:10]
         return super().save(*args, **kwargs)
     def __str__(self):
         return f'{self.name} (since {self.since_date})'
 
 #_________________________________________________________________________ Order
 class Order(models.Model):
+    new = models.CharField(max_length=10, blank=True, null=True)
 
     service = models.ForeignKey(Service, related_name='orders', on_delete=models.SET_NULL, null=True)
     client = models.ForeignKey(User, related_name='orders', on_delete=models.SET_NULL, null=True)
@@ -286,22 +284,19 @@ class Order(models.Model):
     # comments
 
     def save(self, *args, **kwargs):
-        endpoint = Endpoint.objects.get(name='contact')
-        endpoint.key = str(uuid.uuid4().int)[:10]
-        endpoint.save()
+        self.new = str(uuid.uuid4().int)[:10]
         return super().save(*args, **kwargs)().save(*args, **kwargs)
 
     
     def save(self, *args, **kwargs):
-        endpoint = Endpoint.objects.get(name='contact')
-        endpoint.key = str(uuid.uuid4().int)[:10]
-        endpoint.save()
+        self.new = str(uuid.uuid4().int)[:10]
         return super().save(*args, **kwargs)
     def __str__(self) -> str:
         return f"{self.client_name}: {self.service_name} - {self.status}"
 
 #_________________________________________________________________________ Comment
 class Comment(models.Model):
+    new = models.CharField(max_length=10, blank=True, null=True)
 
     GRADES = (
         ('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5'),
@@ -315,15 +310,14 @@ class Comment(models.Model):
     order = models.ForeignKey(Order, related_name='comments', on_delete=models.CASCADE)
     
     def save(self, *args, **kwargs):
-        endpoint = Endpoint.objects.get(name='contact')
-        endpoint.key = str(uuid.uuid4().int)[:10]
-        endpoint.save()
+        self.new = str(uuid.uuid4().int)[:10]
         return super().save(*args, **kwargs)
     def __str__(self) -> str:
         return self.reason[:50]
 
 #_________________________________________________________________________ Visit
 class Visit(models.Model):
+    new = models.CharField(max_length=10, blank=True, null=True)
 
     started = models.DateTimeField(blank=True, null=True)
     finished = models.DateTimeField(blank=True, null=True)
@@ -334,9 +328,7 @@ class Visit(models.Model):
     
     
     def save(self, *args, **kwargs):
-        endpoint = Endpoint.objects.get(name='contact')
-        endpoint.key = str(uuid.uuid4().int)[:10]
-        endpoint.save()
+        self.new = str(uuid.uuid4().int)[:10]
         return super().save(*args, **kwargs)
     def __str__(self) -> str:
         return f'{self.started}-{self.finished}'
@@ -345,44 +337,41 @@ class Visit(models.Model):
 
 #_________________________________________________________________________ Service Photo
 class ServicePhoto(models.Model):
+    new = models.CharField(max_length=10, blank=True, null=True)
 
     photo = models.ImageField(upload_to='images/services', null=True)
     service = models.ForeignKey(Service, on_delete=models.CASCADE, null=True, related_name='photos')
     
     def save(self, *args, **kwargs):
-        endpoint = Endpoint.objects.get(name='contact')
-        endpoint.key = str(uuid.uuid4().int)[:10]
-        endpoint.save()
+        self.new = str(uuid.uuid4().int)[:10]
         return super().save(*args, **kwargs)
     def __str__(self):
         return f"(photo) {self.service.name}"
 
 #_________________________________________________________________________ Visit Photo
 class VisitPhoto(models.Model):
+    new = models.CharField(max_length=10, blank=True, null=True)
 
     photo = models.ImageField(upload_to='images/visits', null=True)
     visit = models.ForeignKey(Visit, related_name='photos', on_delete=models.CASCADE)
 
     
     def save(self, *args, **kwargs):
-        endpoint = Endpoint.objects.get(name='contact')
-        endpoint.key = str(uuid.uuid4().int)[:10]
-        endpoint.save()
+        self.new = str(uuid.uuid4().int)[:10]
         return super().save(*args, **kwargs)
     def __str__(self):
         return f"(photo) {self.visit}"
 
 #_________________________________________________________________________ Video
 class Video(models.Model):
+    new = models.CharField(max_length=10, blank=True, null=True)
 
     name = models.CharField(max_length=256)
     url = models.URLField(blank=False, null=True)
 
     
     def save(self, *args, **kwargs):
-        endpoint = Endpoint.objects.get(name='contact')
-        endpoint.key = str(uuid.uuid4().int)[:10]
-        endpoint.save()
+        self.new = str(uuid.uuid4().int)[:10]
         return super().save(*args, **kwargs)
     def __str__(self):
         return self.name + " Video"
@@ -390,30 +379,29 @@ class Video(models.Model):
 #_________________________________________________________________________ Company
 
 class Link(models.Model):
+    new = models.CharField(max_length=10, blank=True, null=True)
 
     link = models.URLField(blank=False, null=True)
     name = models.CharField(max_length=32, blank=False, null=True)
     
     def save(self, *args, **kwargs):
-        endpoint = Endpoint.objects.get(name='contact')
-        endpoint.key = str(uuid.uuid4().int)[:10]
-        endpoint.save()
+        self.new = str(uuid.uuid4().int)[:10]
         return super().save(*args, **kwargs)
     def __str__(self) -> str:
         return f'{self.name}'
 class BranchPhone(models.Model):
+    new = models.CharField(max_length=10, blank=True, null=True)
 
     phone = PhoneNumberField(blank=False, null=True, default='7757')
     
     def save(self, *args, **kwargs):
-        endpoint = Endpoint.objects.get(name='contact')
-        endpoint.key = str(uuid.uuid4().int)[:10]
-        endpoint.save()
+        self.new = str(uuid.uuid4().int)[:10]
         return super().save(*args, **kwargs)
     def __str__(self) -> str:
         return f'{self.phone}'
     
 class Branch(models.Model):
+    new = models.CharField(max_length=10, blank=True, null=True)
     key = models.CharField(max_length=32, blank=False, null=True)
     name = models.CharField(max_length=512, blank=False, null=True)
     shortPhone = models.CharField(max_length=6, blank=True)
@@ -425,9 +413,7 @@ class Branch(models.Model):
     
     
     def save(self, *args, **kwargs):
-        endpoint = Endpoint.objects.get(name='contact')
-        endpoint.key = str(uuid.uuid4().int)[:10]
-        endpoint.save()
+        self.new = str(uuid.uuid4().int)[:10]
         return super().save(*args, **kwargs)
 
     def __str__(self) -> str:

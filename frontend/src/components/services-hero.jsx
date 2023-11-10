@@ -1,3 +1,4 @@
+import React from 'react';
 import { ReactComponent as ArrowRight} from '../icons/arrow-right.svg';
 import HeroGirl1x from '../images/hero-girl-1x.png';
 import HeroGirl2x from '../images/hero-girl-2x.png';

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {ReactComponent as PhoneIcon} from '../icons/call.svg';
 import {ReactComponent as Line} from '../icons/line.svg';
 import {ReactComponent as YoutubeIcon} from '../icons/icon_youTube.svg';
@@ -27,14 +27,8 @@ const socialLinks = [
   },
 ]
 
-const mappedSocialLinks = socialLinks.map((item) => {
-  <a href={item.link} target="_blank">
-    <YoutubeIcon />
-    {/*item.name*/}
-  </a>
-})
-
 function Contact() {
+  const [links, setLinks] = useState(socialLinks);
   return (
     <section className="contact">
       <div className="container contact__container">
@@ -51,7 +45,15 @@ function Contact() {
           <span className="work-time">Ish vaqti: {workingTimeStart} - {workingTimeEnd}</span>
         </div>
         <div className="contact__social-links">
-          {mappedSocialLinks}
+          {
+          links.map((item) => {
+            return (
+            <a href={item.link} target="_blank">
+              {item.icon}
+            </a>
+            )
+          })
+          }
         </div>
       </div>
     </section>

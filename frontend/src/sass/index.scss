@@ -1,6 +1,7 @@
 @import './variables';
 @import "./services";
 @import "./blog";
+@import './about';
 
 html {
   font-family: sans-serif; /* 1 */
@@ -312,7 +313,7 @@ th {
   --clr-black-900: white;
   --clr-grey-900: #332942;
   --clr-grey-800: white;
-  background: black;
+  background: #251f2e;
 }
 
 .dark-theme h1,
@@ -1133,6 +1134,9 @@ main img {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  img {
+    border-radius: 16px;
+  }
 }
 
 .cards__block__title {
@@ -1661,5 +1665,8 @@ main img {
   }
 }
 
+.dark-theme .container > svg {
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(61deg) brightness(108%) contrast(104%);
+}
 
 /*# sourceMappingURL=index.css.map */

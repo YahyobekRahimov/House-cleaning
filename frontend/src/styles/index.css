@@ -492,7 +492,6 @@ main img {
   width: 1px;
   height: 45px;
   background-color: #786868;
-  margin-left: auto;
 }
 
 #search-button {
@@ -569,6 +568,81 @@ main img {
   font-size: 16px;
   font-weight: 700;
   line-height: 24px; /* 150% */
+}
+
+.About__hero {
+  background-color: var(--clr-yellow-900);
+  padding-top: 36px;
+  padding-bottom: 101px;
+}
+
+.About__Hero__site__map {
+  display: flex;
+  align-items: center;
+}
+.About__Hero__site__map:first-child {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 100%; /* 16px */
+}
+
+.About__Hero__container {
+  display: flex;
+  align-items: center;
+}
+.About__Hero__container iframe {
+  border-radius: 32px;
+  position: relative;
+}
+
+.About__Hero__subheading {
+  color: var(--clr-green-900);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 44px; /* 183.333% */
+  margin-bottom: 8px;
+}
+
+.About__Hero__title {
+  color: var(--clr-grey-900);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 56px; /* 140% */
+  margin-bottom: 24px;
+}
+
+.About__Hero__description {
+  width: 80%;
+  color: var(--clr-grey-800);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  margin-bottom: 48px;
+}
+
+.stats-description {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 100%; /* 16px */
+}
+
+.stats-number {
+  color: var(--clr-green-900);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 48px; /* 150% */
+}
+
+.stats-wrapper {
+  display: flex;
+  gap: 32px;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
 }
 
 html {
@@ -854,7 +928,7 @@ th {
   --clr-black-900: white;
   --clr-grey-900: #332942;
   --clr-grey-800: white;
-  background: black;
+  background: #251f2e;
 }
 
 .dark-theme h1,
@@ -1688,6 +1762,9 @@ main img {
   flex-direction: column;
   gap: 16px;
 }
+.offers__cards__block img {
+  border-radius: 16px;
+}
 
 .cards__block__title {
   color: var(--clr-grey-900);
@@ -2217,6 +2294,10 @@ main img {
     font-size: 3rem;
   }
 }
+.dark-theme .container > svg {
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(61deg) brightness(108%) contrast(104%);
+}
+
 
 
 /*# sourceMappingURL=index.css.map */

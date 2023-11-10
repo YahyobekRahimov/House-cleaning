@@ -3,6 +3,7 @@ import Contact from "../components/contact"
 import Header from "../components/header"
 import BlogHero from "../components/BlogHero";
 import BlogTabs from "../components/BlogTabs";
+import Footer from '../components/footer';
 
 function Blog() {
     return (
@@ -13,6 +14,8 @@ function Blog() {
             <BlogHero />
             <BlogTabs /> 
         </main>
+            <Footer />
+            <Contact />
         </>
     )
 }

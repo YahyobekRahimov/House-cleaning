@@ -9,6 +9,7 @@ import Contact from '../components/contact';
 import Header from '../components/header';
 import BarMenu from '../components/bar-menu';
 import LiveChat from "../components/live-chat";
+import UserContactInfo from '../components/userContactInfo';
 
 function Home() {
     return (
@@ -24,6 +25,7 @@ function Home() {
         <Feedbacks />
         <Partners />
         <LiveChat />
+        <UserContactInfo />
       </main>
       <Footer />
       <Contact />

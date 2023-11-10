@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import './i18n';
 import { ShortStateProvider } from "./hooks/shortState";
 import { LongStateProvider } from "./hooks/longState";
+import './styles/index.css';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

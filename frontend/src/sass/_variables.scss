@@ -1,9 +1,9 @@
 // Colors
-$clr-blue-900: #332942;
-$clr-green-900: #0fc36d;
-$clr-gray-900: #726a7e;
-$clr-gray-800: #f6f7ed;
-$clr-white-900: white;
+$clr-blue-900: var(--clr-grey-900);
+$clr-green-900: var(--clr-green-900);
+$clr-gray-900: var(--clr-grey-900);
+$clr-gray-800: var(--clr-yellow0-900);
+$clr-white-900: var(--clr-white-900);
 // font-size
 $fs-56: 3.5rem;
 $fs-40: 2.5rem;

@@ -8,7 +8,6 @@ import Footer from '../components/footer';
 import Contact from '../components/contact';
 import Header from '../components/header';
 import BarMenu from '../components/bar-menu';
-import '../styles/index.css';
 function Home() {
     return (
     <>

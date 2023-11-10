@@ -1,6 +1,5 @@
 import React from "react"
 import { ReactComponent as ArrowRight} from '../icons/arrow-right.svg';
-import '../styles/BlogHero.css';
 
 function BlogHero() {
     return (

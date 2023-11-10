@@ -1257,7 +1257,7 @@ a {
   gap: 1.5rem;
 }
 
-.header__nav a,
+.header__nav li,
 .header__nav span {
   color: var(--clr-grey-900);
   font-size: 1.125rem;
@@ -1266,13 +1266,9 @@ a {
   transition: all 0.2s ease-in;
 }
 
-.header__nav a:hover,
-.header__nav span:hover {
+.header__nav li:hover {
   color: var(--clr-green-900);
-}
-
-.header__nav span:hover svg {
-  filter: invert(58%) sepia(89%) saturate(2083%) hue-rotate(108deg) brightness(95%) contrast(88%);
+  cursor: pointer;
 }
 
 .header__nav > :first-child span {
@@ -1295,17 +1291,12 @@ a {
   width: 200px;
   cursor: pointer;
   margin: 0px 3px 3px 4px;
+  font-size: 16px;
+  height: 100%;
 }
 .HeaderDropdown li:hover {
   background-color: rgb(232, 230, 230);
-}
-.HeaderDropdown li:hover a {
   color: var(--clr-black-900);
-}
-.HeaderDropdown li a {
-  font-size: 16px;
-  width: 100%;
-  height: 100%;
 }
 
 .header__nav > :first-child:hover ul {
@@ -2419,6 +2410,7 @@ input#phoneNumber {
   display: flex;
   justify-content: center;
   align-items: center;
+  display: none;
 }
 
 

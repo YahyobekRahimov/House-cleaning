@@ -6,9 +6,10 @@ import { ReactComponent as UzbekistanFlag } from "../icons/Uzbekistan.svg";
 import { ReactComponent as RussianFlag } from "../icons/Russian-Federation.svg";
 import { ReactComponent as BritainFlag } from "../icons/Great-Britain.svg";
 import { ReactComponent as ArrowDown } from '../icons/arrow-down.svg';
+import { useLongState } from "../hooks/longState";
 
 function Header() {
-    const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(false);
   useEffect(() => {
     const body = document.querySelector('body');
     body.classList.toggle('dark-theme');
@@ -16,6 +17,10 @@ function Header() {
   function handleDarkTheme() {
     setDark(!dark)
   } 
+  const {longState, longDispatch} = useLongState();
+  function handleNavItem(page)  {
+    longDispatch({navActive: page})
+  }
   return (
     <header className="header">
       <section>
@@ -25,23 +30,23 @@ function Header() {
             <span className="middle-bar"></span>
             <span className="last-bar"></span>
           </button>
-          <Link to='/'>
+          <span onClick={() => handleNavItem('home')}>
             <Logo />
-          </Link>
+          </span>
           <nav>
             <ul className="header__nav">
               <li>
                 <span>Xizmatlar <ArrowDown /></span>
                 <ul className="HeaderDropdown">
-                  <li><Link to='/services'>Tozalash xizmatlari</Link></li>
-                  <li><Link to='/other-services'>Boshqa xizmatlar</Link></li>
+                  <li onClick={() => handleNavItem('services')}>Tozalash xizmatlari</li>
+                  <li onClick={() => handleNavItem('other-services')}>Boshqa xizmatlar</li>
                 </ul>
               </li>
-              <li>
-                <Link to='/blog'>Blog</Link>
+              <li onClick={() => handleNavItem('blog')}>
+                Blog
               </li>
-              <li>
-                <Link to='/about'>Biz haqimizda</Link>
+              <li onClick={() => handleNavItem('about')}>
+                Biz haqimizda
               </li>
             </ul>
           </nav>

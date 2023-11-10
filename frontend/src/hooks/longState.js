@@ -5,7 +5,8 @@ import React, { createContext, useContext, useReducer } from 'react';
 // I THINK YOU SHOULD INCLUDE YOUR STORED ITEM IN THIS LIST
 // THIS HELPS FOR EFFICIENCY AND BETTER UNDERSTANDING
 const defaultState = JSON.parse(localStorage.getItem('appState')) || { // FIND 'appState BELOW'
-  // navActive: 'about', 
+  navActive: 'about', 
+};
   // processMenuActive: 'daily',
   // processChartViewMode: 'bar',
   // processRangeSelected: 'All',
@@ -20,7 +21,6 @@ const defaultState = JSON.parse(localStorage.getItem('appState')) || { // FIND '
 
   // ... WRITE YOUR OWN HERE
   // THIS IS LONGSTATE WHICH CAN STORE DATA FOR LONG TIME. EVEN PAGE IS RENDERED AND IN SOME CASES EVEN THE DEVICE RESTARTED THE DATA IN THIS STATE PROVIDER IS KEPT AND FRESH. DO NOT SAVE PERSONAL AND SECRET DATA IN HERE. EVERYONE CAN SEE DATA OF LOCALSTORAGE.
-};
 const LongStateContext = createContext();
 
 export function useLongState() {

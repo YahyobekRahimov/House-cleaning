@@ -3,9 +3,9 @@ import {ReactComponent as ChatIcon} from '../icons/live-chat.svg';
 
 function LiveChat() {
     return (
-        <section class="chatbot">
-            <div class="container chatbot__container">
-                <button class="live-chat-button">
+        <section className="chatbot">
+            <div className="container chatbot__container">
+                <button className="live-chat-button">
                     <ChatIcon />
                 </button>
             </div>

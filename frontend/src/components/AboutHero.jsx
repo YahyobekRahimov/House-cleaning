@@ -35,7 +35,7 @@ function AboutHero() {
             src="https://www.youtube.com/embed/Ad7mZ16ACB0?ecver=1&amp;iv_load_policy=1&amp;yt:stretch=16:9&amp;autohide=1&amp;color=red&amp;width=560&amp;width=560"
             width="560"
             height="315"
-            frameborder="0"
+            frameBorder="0"
           ></iframe>
         </div>
       </div>

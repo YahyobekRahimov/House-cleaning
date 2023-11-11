@@ -28,9 +28,7 @@ export function useLongState() {
 }
 
 const reducer = (state, action) => {
-  console.log(state, action)
   const newState = {...state, ...action};
-  console.log(newState)
   localStorage.setItem('appState', JSON.stringify(newState)); // YES, IT IS HERE. YOU MUST KNOW THAT YOU CAN CREATE YOUR OWN STATE PROVIDER LIKE THIS AND WRAP YOUR HAPPY COMPONENTS WITH YOUR NEW STATEPROVIDER. IF YOU DO, DO NOT FORGET TO SET DIFFERENT NAME TO STORE IN LOCALSTORAGE: OTHER THAN 'appState'. REALLY WANT? COPY THE FILE AND PUT IT IN HOOKS FOLDER AND MAKE CHANGES: 
   // 1. change 'appState' with your own
   // 2. change 'useLongState' (the hook name) to your own

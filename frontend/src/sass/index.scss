@@ -298,8 +298,12 @@ th {
   color: white !important;
 }
 
-.dark-theme .header__nav a:hover {
+.dark-theme .header__nav li:hover {
   color: var(--clr-green-900) !important;
+}
+
+.dark-theme .header__nav li {
+  color: var(--clr-black-900)
 }
 
 body {
@@ -404,6 +408,7 @@ a {
   }
 }
 @media (max-width: 800px) {
+  
   .contact__information {
     gap: 5rem;
   }
@@ -625,7 +630,7 @@ a {
   display: flex;
   align-items: center;
   gap: 0.125rem;
-  cursor: pointer;
+  cursor: pointer;  
 }
 
 .HeaderDropdown {
@@ -634,9 +639,6 @@ a {
 
 .header__nav > :first-child {
   position: relative;
-}
-
-.HeaderDropdown {
 }
 
 .HeaderDropdown li {
@@ -1797,6 +1799,12 @@ input#phoneNumber {
   justify-content: center;
   align-items: center;
   display: none;
+}
+
+@media (max-width: 800px) {
+  .iframe-wrapper {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

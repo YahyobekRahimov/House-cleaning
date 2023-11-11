@@ -646,6 +646,11 @@ main img {
   flex-direction: column;
 }
 
+@media (max-width: 800px) {
+  .About_Hero__left-side {
+    text-align: center;
+  }
+}
 html {
   font-family: sans-serif; /* 1 */
   -ms-text-size-adjust: 100%; /* 2 */
@@ -943,8 +948,12 @@ th {
   color: white !important;
 }
 
-.dark-theme .header__nav a:hover {
+.dark-theme .header__nav li:hover {
   color: var(--clr-green-900) !important;
+}
+
+.dark-theme .header__nav li {
+  color: var(--clr-black-900);
 }
 
 body {
@@ -2450,6 +2459,11 @@ input#phoneNumber {
   display: none;
 }
 
+@media (max-width: 800px) {
+  .iframe-wrapper {
+    display: none;
+  }
+}
 
 
 /*# sourceMappingURL=index.css.map */

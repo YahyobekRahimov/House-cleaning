@@ -5,6 +5,8 @@ from rest_framework import viewsets
 from core.models import Country, Region, District, Village, User, Position, Phone, Location, Measurment, Pricing, Category, Service, Order, Comment, Visit, ServicePhoto, VisitPhoto, Video, Link, BranchPhone, Branch
 from .serializers import CountrySerializer, RegionSerializer, DistrictSerializer, VillageSerializer, UserSerializer, PositionSerializer, PhoneSerializer, LocationSerializer, MeasurmentSerializer, PricingSerializer, CategorySerializer, ServiceSerializer, OrderSerializer, CommentSerializer, VisitSerializer, ServicePhotoSerializer, VisitPhotoSerializer, VideoSerializer, LinkSerializer, BranchPhoneSerializer, BranchSerializer, EndpointSerializer
 
+from django.http import JsonResponse
+
 class CountryViewSet(viewsets.ModelViewSet):
     queryset = Country.objects.all()
     serializer_class = CountrySerializer
@@ -94,4 +96,95 @@ class EndpointViewSet(viewsets.ModelViewSet):
     queryset = Endpoint.objects.all()
     serializer_class = EndpointSerializer
     http_method_names = ['get', 'post', 'put', 'patch', 'delete'] 
+
+# _______________________________________________________________________________
+def isnew_country(request, key):
+    model = Endpoint.objects.first()
+    return JsonResponse({'new': model.country == key})
+    
+def isnew_region(request, key):
+    model = Endpoint.objects.first()
+    return JsonResponse({'new': model.region == key})
+    
+def isnew_district(request, key):
+    model = Endpoint.objects.first()
+    return JsonResponse({'new': model.district == key})
+    
+def isnew_village(request, key):
+    model = Endpoint.objects.first()
+    return JsonResponse({'new': model.village == key})
+    
+def isnew_user(request, key):
+    model = Endpoint.objects.first()
+    return JsonResponse({'new': model.user == key})
+    
+def isnew_position(request, key):
+    model = Endpoint.objects.first()
+    return JsonResponse({'new': model.position == key})
+    
+def isnew_phone(request, key):
+    model = Endpoint.objects.first()
+    return JsonResponse({'new': model.phone == key})
+    
+def isnew_location(request, key):
+    model = Endpoint.objects.first()
+    return JsonResponse({'new': model.location == key})
+    
+def isnew_measurment(request, key):
+    model = Endpoint.objects.first()
+    return JsonResponse({'new': model.measurment == key})
+    
+def isnew_pricing(request, key):
+    model = Endpoint.objects.first()
+    return JsonResponse({'new': model.pricing == key})
+    
+def isnew_category(request, key):
+    model = Endpoint.objects.first()
+    return JsonResponse({'new': model.category == key})
+    
+def isnew_service(request, key):
+    model = Endpoint.objects.first()
+    return JsonResponse({'new': model.service == key})
+    
+def isnew_order(request, key):
+    model = Endpoint.objects.first()
+    return JsonResponse({'new': model.order == key})
+    
+def isnew_comment(request, key):
+    model = Endpoint.objects.first()
+    return JsonResponse({'new': model.comment == key})
+    
+def isnew_visit(request, key):
+    model = Endpoint.objects.first()
+    return JsonResponse({'new': model.visit == key})
+    
+def isnew_servicephoto(request, key):
+    model = Endpoint.objects.first()
+    return JsonResponse({'new': model.servicephoto == key})
+    
+def isnew_visitphoto(request, key):
+    model = Endpoint.objects.first()
+    return JsonResponse({'new': model.visitphoto == key})
+    
+def isnew_video(request, key):
+    model = Endpoint.objects.first()
+    return JsonResponse({'new': model.video == key})
+    
+def isnew_link(request, key):
+    model = Endpoint.objects.first()
+    return JsonResponse({'new': model.link == key})
+    
+def isnew_branchphone(request, key):
+    model = Endpoint.objects.first()
+    return JsonResponse({'new': model.branchphone == key})
+    
+def isnew_branch(request, key):
+    model = Endpoint.objects.first()
+    return JsonResponse({'new': model.branch == key})
+    
+def isnew_endpoint(request, key):
+    model = Endpoint.objects.first()
+    return JsonResponse({'new': model.endpoint == key})
+    
+
 

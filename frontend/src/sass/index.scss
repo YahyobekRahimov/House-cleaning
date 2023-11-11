@@ -1730,6 +1730,40 @@ input#phoneNumber {
     margin-bottom: 32px;
   }
 }
+.user-login-form-input {
+  border-radius: 16px;
+  border: 1px solid #E3E2E2;
+  background: var(--clr-white-900);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  margin-bottom: 30px;
+  &:first-of-type {
+    margin-top: 50px;
+  }
+}
+#email,
+#password,
+#repassword {
+  outline: none;
+  border: none;
+  font-size: 20px;
+}
+
+.user-registration-form-input {
+  border-radius: 16px;
+  border: 1px solid #E3E2E2;
+  background: var(--clr-white-900);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  margin-bottom: 30px;
+  &:first-of-type {
+    margin-top: 50px;
+  }
+}
 
 #submit-button {
   padding: 16px 20px;

@@ -2380,6 +2380,42 @@ input#phoneNumber {
   margin-bottom: 32px;
 }
 
+.user-login-form-input {
+  border-radius: 16px;
+  border: 1px solid #E3E2E2;
+  background: var(--clr-white-900);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  margin-bottom: 30px;
+}
+.user-login-form-input:first-of-type {
+  margin-top: 50px;
+}
+
+#email,
+#password,
+#repassword {
+  outline: none;
+  border: none;
+  font-size: 20px;
+}
+
+.user-registration-form-input {
+  border-radius: 16px;
+  border: 1px solid #E3E2E2;
+  background: var(--clr-white-900);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  margin-bottom: 30px;
+}
+.user-registration-form-input:first-of-type {
+  margin-top: 50px;
+}
+
 #submit-button {
   padding: 16px 20px;
   width: 100%;
@@ -2405,6 +2441,7 @@ input#phoneNumber {
   position: fixed;
   top: 0;
   left: 0;
+  display: none;
   background: rgba(0, 0, 0, 0.32);
   backdrop-filter: blur(27.5px);
   display: flex;

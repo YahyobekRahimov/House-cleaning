@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from "../icons/logo.svg";
 import { ReactComponent as Sun } from "../icons/sun.svg";
 import { ReactComponent as UzbekistanFlag } from "../icons/Uzbekistan.svg";
